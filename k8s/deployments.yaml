@@ -1,0 +1,93 @@
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ex1-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ex1
+  template:
+    metadata:
+      labels:
+        app: ex1
+    spec:
+      containers:
+        - name: ex1
+          image: NUME_DOCKERHUB/lab3-docker:ex1
+          ports:
+            - containerPort: 8081
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ex1-service
+spec:
+  selector:
+    app: ex1
+  ports:
+    - port: 8081
+      targetPort: 8081
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ex2-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ex2
+  template:
+    metadata:
+      labels:
+        app: ex2
+    spec:
+      containers:
+        - name: ex2
+          image: NUME_DOCKERHUB/lab3-docker:ex2
+          ports:
+            - containerPort: 8082
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ex2-service
+spec:
+  selector:
+    app: ex2
+  ports:
+    - port: 8082
+      targetPort: 8082
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ex3-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ex3
+  template:
+    metadata:
+      labels:
+        app: ex3
+    spec:
+      containers:
+        - name: ex3
+          image: valerialazari/lab3-docker:ex3
+          ports:
+            - containerPort: 8083
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ex3-service
+spec:
+  selector:
+    app: ex3
+  ports:
+    - port: 8083
+      targetPort: 8083

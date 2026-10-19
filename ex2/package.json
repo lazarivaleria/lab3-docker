@@ -1,0 +1,13 @@
+
+{
+  "name": "lab3-ex2",
+  "version": "1.0.0",
+  "description": "Al doilea server Node.js pentru laboratorul Docker",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}
